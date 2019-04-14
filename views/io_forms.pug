@@ -13,29 +13,32 @@ block content
             form(method='POST' action='')
                 div.form-group
                     label(for='title') Expend:
-                    input#expend.form-control(type='text', placeholder='Money you spend' name='title' required='true' value=(undefined === book ? '' : book.title) )
+                    input#expend.form-control(type='text', placeholder='Money you spend' name='expenditure' required='true')
                 div.form-group
                     label(for='summary') Choose Tag:
                     for tag in expenditure_list
                         p #{tag.expenditureTag}
-                            input#expendTag.form-control(type='checkbox' name=tag.expenditureTag value=tag.expenditureTag)
+                            input#expendTag.form-control(type='checkbox' name='expenditureTag' value=tag.expenditureTag)
                 div.form-group
                     label(for='isbn') Purpose:
-                    input#expendPurpose.form-control(type='text', placeholder='Edit your purpose' name='isbn' value=(undefined === book ? '' : book.isbn) required='true')
-                button.btn.btn-primary(type='submit') Submit
+                    input#expendPurpose.form-control(type='text', placeholder='Edit your purpose' name='expPurpose' required='true')
+                a(href='/expend')
+                    button.btn.btn-primary(type='submit') Submit
 
         div#rightform
             h2 Earning:
             form(method='POST' action='')
                 div.form-group
                     label(for='title') Expend:
-                    input#earning.form-control(type='text', placeholder='Money your earning' name='title' required='true' value=(undefined === book ? '' : book.title) )
+                    input#earning.form-control(type='text', placeholder='Money your earning' name='earning' required='true')
                 div.form-group
                     label(for='summary') Choose Tag:
-                    input#earningTag.form-control(type='textarea', placeholder='Summary' name='summary' value=(undefined === book ? '' : book.summary) required='true')
+                    for tag in earning_list
+                        p #{tag.earningTag}
+                            input#earningTag.form-control(type='checkbox', placeholder='Summary' name='earningTag' value=tag.earningTag required='true')
                 div.form-group
                     label(for='isbn') Purpose:
-                    input#earningPurpose.form-control(type='text', placeholder='Edit type of earning' name='isbn' value=(undefined === book ? '' : book.isbn) required='true')
+                    input#earningPurpose.form-control(type='text', placeholder='Edit type of earning' name='earPurpose' required='true')
                 button.btn.btn-primary(type='submit') Submit
     div.clear
     button.btn Show detail

@@ -14,17 +14,22 @@ var async = require('async')
 exports.index = (req, res, next) => {
     async.parallel({
         totalMoney: (callback) => {
-            db.query('select totalMoney from totalMoney',(err, result) => {
+            db.query('select totalMoney from totalMoney', (err, result) => {
                 callback(err, result[0].totalMoney)
             })
-    },
+        },
         expenditure_list: (callback) => {
             db.query('select * from expenditureTags', (err, result) => {
                 callback(err, result)
             })
+        },
+        earning_list: (callback) => {
+            db.query('select * from earningTags', (err, result) => {
+                callback(err, result)
+            })
         }
-    }, (err, results) => {
+    },(err, results) => {
         if(err) { return next(err) }
-        res.render('io_forms', { title: 'Personal Account Book', totalMoney: results['totalMoney'], expenditure_list: results['expenditure_list'] })
+        res.render('io_forms', { title: 'Personal Account Book', totalMoney: results['totalMoney'], expenditure_list: results['expenditure_list'] , earning_list: results['earning_list']})
 })
 }
