@@ -22,7 +22,31 @@ exports.index = (req, res, next) => {
             db.query('select * from expenditureTags', (err, result) => {
                 callback(err, result)
             })
+        }
+        // ,
+        // earning_list: (callback) => {
+        //     db.query('select * from earningTags', (err, result) => {
+        //         callback(err, result)
+        //     })
+        // }
+    },(err, results) => {
+        if(err) { return next(err) }
+        res.render('post_expenditure', { title: 'Personal Account Book', totalMoney: results['totalMoney'], expenditure_list: results['expenditure_list'] })
+})
+}
+
+exports.earning = (req, res, next) => {
+    async.parallel({
+        totalMoney: (callback) => {
+            db.query('select totalMoney from totalMoney', (err, result) => {
+                callback(err, result[0].totalMoney)
+            })
         },
+        // expenditure_list: (callback) => {
+        //     db.query('select * from expenditureTags', (err, result) => {
+        //         callback(err, result)
+        //     })
+        // },
         earning_list: (callback) => {
             db.query('select * from earningTags', (err, result) => {
                 callback(err, result)
@@ -30,6 +54,6 @@ exports.index = (req, res, next) => {
         }
     },(err, results) => {
         if(err) { return next(err) }
-        res.render('io_forms', { title: 'Personal Account Book', totalMoney: results['totalMoney'], expenditure_list: results['expenditure_list'] , earning_list: results['earning_list']})
-})
+        res.render('post_earning', { title: 'Personal Account Book', totalMoney: results['totalMoney'], earning_list: results['earning_list'] })
+    })
 }
