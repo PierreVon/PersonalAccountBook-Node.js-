@@ -4,7 +4,7 @@ block content
 
     div#form
         div#leftform
-            form(method='POST' action='')
+            form(method='POST' action='/action/postExp')
                 div.form-group
                     label(for='title') Expend:
                     input#expend.form-control(type='text', placeholder='Money you spend' name='expenditure' required='true')
@@ -16,6 +16,5 @@ block content
                 div.form-group
                     label(for='isbn') Purpose:
                     input#expendPurpose.form-control(type='text', placeholder='Edit your purpose' name='expPurpose' required='true')
-                a(href='/expend')
-                    button.btn.btn-primary(type='submit') Submit
+                button.btn.btn-primary(type='submit') Submit
     div.clear

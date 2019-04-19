@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
-index_controller = require('../controllers/index')
+action_controller = require('../controllers/actions')
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('io_forms', { title: 'Personal Account Book', totalMoney: 12000 });
 // });
 
-router.get('/', index_controller.index)
+router.post('/action/postExp', action_controller.postExp)
+
+router.post('/action/postEar', action_controller.postEar)
 
 module.exports = router;

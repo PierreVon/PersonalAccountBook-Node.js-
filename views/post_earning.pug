@@ -3,9 +3,8 @@ extends layout
 block content
 
     div#form
-
         div#rightform
-            form(method='POST' action='')
+            form(method='POST' action='/action/postEar')
                 div.form-group
                     label(for='title') Expend:
                     input#earning.form-control(type='text', placeholder='Money your earning' name='earning' required='true')
@@ -13,7 +12,7 @@ block content
                     label(for='summary') Choose Tag:
                     for tag in earning_list
                         p #{tag.earningTag}
-                            input#earningTag.form-control(type='checkbox', placeholder='Summary' name='earningTag' value=tag.earningTag required='true')
+                            input#earningTag.form-control(type='checkbox', placeholder='Summary' name='earningTag' value=tag.earningTag)
                 div.form-group
                     label(for='isbn') Purpose:
                     input#earningPurpose.form-control(type='text', placeholder='Edit type of earning' name='earPurpose' required='true')

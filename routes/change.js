@@ -7,6 +7,6 @@ index_controller = require('../controllers/index')
 //   res.render('io_forms', { title: 'Personal Account Book', totalMoney: 12000 });
 // });
 
-router.get('/', index_controller.index)
+router.get('/change/earning', index_controller.earning)
 
 module.exports = router;
