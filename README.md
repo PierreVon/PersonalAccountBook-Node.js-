@@ -6,8 +6,8 @@ This simple project is created only for sake of learning node.js.
 #HOW TO RUN IT
 
 mysql
->>> source url // url is the location of PersonalAccount.sql, this command is to create database
->>> exit
+> source url // url is the location of PersonalAccount.sql, this command is to create database
+> exit
 
 $ npm run dev // type it in local location where you clone it at your terminal
 
