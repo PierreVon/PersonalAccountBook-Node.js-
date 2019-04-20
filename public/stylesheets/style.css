@@ -12,6 +12,13 @@ a {
   float: left;
   margin-right: 50px;
 }
+
+#leftchoose{
+  float: left;
+  margin-right: 50px;
+  margin-top: -10px;
+}
+
 #rightform{
   float: left;
 }
@@ -32,4 +39,24 @@ a:hover{
 
 .clear{
   clear: both;
+}
+
+#expenditure{
+  color: green;
+}
+
+#expenditureTag{
+  color: teal;
+}
+
+#earning{
+  color: red;
+}
+
+#earningTag{
+  color: brown;
+}
+
+#summit{
+  margin-top: 15px;
 }

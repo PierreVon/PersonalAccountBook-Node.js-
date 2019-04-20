@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+    div#form
+        p ------------------------------
+        for tag in bill_list
+            if tag.kind == 0
+                p#earning Earning Money: +#{tag.billMoney}
+                p Earning Date:  #{tag.billDate}
+                p#earningTag Tag:           #{tag.billTag}
+                p Purpose:       #{tag.purpose}
+                p ------------------------------
+            else
+                p#expenditure Expenditure Money: -#{tag.billMoney}
+                p Expenditure Date:  #{tag.billDate}
+                p#expenditureTag Tag:           #{tag.billTag}
+                p Purpose:       #{tag.purpose}
+                p ------------------------------

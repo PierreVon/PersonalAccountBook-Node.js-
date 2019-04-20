@@ -2,34 +2,21 @@ var db = require('../db/db')
 var async = require('async')
 
 exports.postExp = (req, res , next) =>{
-    var a = {
-        'expenditure' : req.body.expenditure,
-        'expenditureTag': req.body.expenditureTag,
-        'expPurpose': req.body.expPurpose,
-        'data': new Date().toLocaleDateString(),
-        'time': new Date().toLocaleTimeString()
-    }
     var datetime = new Date()
     var date = datetime.toLocaleDateString()
     var time = datetime.toLocaleTimeString()
 
     async.waterfall([
         (callback) =>{
-            sql = "insert into date_Time values(" + "'" + date + "','" + time + "')"
+            sql = "insert into bill values (" + req.body.expenditure +",'"+ date + "','" + time + "','" + req.body.expenditureTag + "','" + req.body.expPurpose + "'," + 1 + ")"
+            console.log(sql)
             db.query(sql, (err) =>{
                 if(err) return err
             })
             callback(null)
         },
         (callback) =>{
-            sql = "insert into expenditure values (" + req.body.expenditure +",'"+ date + "','" + time + "','" + req.body.expenditureTag + "','" + req.body.expPurpose + "')"
-            db.query(sql, (err) =>{
-                if(err) return err
-            })
-            callback(null)
-        },
-        (callback) =>{
-                db.query('select totalMoney from totalMoney', (err, result) =>{
+            db.query('select totalMoney from totalMoney', (err, result) =>{
                 if(err) return err
                 callback(null, result[0].totalMoney)
             })
@@ -57,14 +44,7 @@ exports.postEar = (req, res , next) =>{
 
     async.waterfall([
         (callback) =>{
-            sql = "insert into date_Time values(" + "'" + date + "','" + time + "')"
-            db.query(sql, (err) =>{
-                if(err) return err
-            })
-            callback(null)
-        },
-        (callback) =>{
-            sql = "insert into earning values (" + req.body.earning +",'"+ date + "','" + time + "','" + req.body.earningTag + "','" + req.body.earPurpose + "')"
+            sql = "insert into bill values (" + req.body.earning +",'"+ date + "','" + time + "','" + req.body.earningTag + "','" + req.body.earPurpose + "'," + 0 + ")"
             db.query(sql, (err) =>{
                 if(err) return err
             })

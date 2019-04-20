@@ -6,15 +6,16 @@ block content
         div#leftform
             form(method='POST' action='/action/postExp')
                 div.form-group
-                    label(for='title') Expend:
-                    input#expend.form-control(type='text', placeholder='Money you spend' name='expenditure' required='true')
+                    label Expend:
+                    input#expenditure.form-control(type='text', placeholder='Money you spend' name='expenditure' required='true')
                 div.form-group
-                    label(for='summary') Choose Tag:
+                    p Choose Tag:
                     for tag in expenditure_list
-                        p #{tag.expenditureTag}
-                            input#expendTag.form-control(type='checkbox' name='expenditureTag' value=tag.expenditureTag)
+                        div#leftchoose
+                            p #{tag.Tag}
+                                input#expendTag.form-control(type='checkbox' name='expenditureTag' value=tag.Tag)
                 div.form-group
-                    label(for='isbn') Purpose:
+                    label Purpose:
                     input#expendPurpose.form-control(type='text', placeholder='Edit your purpose' name='expPurpose' required='true')
-                button.btn.btn-primary(type='submit') Submit
+                button#summit(type='submit') Submit
     div.clear

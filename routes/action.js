@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-action_controller = require('../controllers/actions')
+action_controller = require('../controllers/action')
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {

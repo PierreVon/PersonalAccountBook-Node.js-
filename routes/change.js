@@ -8,5 +8,6 @@ index_controller = require('../controllers/index')
 // });
 
 router.get('/change/earning', index_controller.earning)
+router.get('/change/detail', index_controller.detail)
 
 module.exports = router;
